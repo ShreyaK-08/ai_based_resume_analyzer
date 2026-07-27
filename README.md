@@ -49,15 +49,15 @@ ResumeAI accepts a resume and a job description as PDFs, extracts their text, an
 
 ```mermaid
 flowchart LR
-    A[React Client] -- REST/JSON --> B[Express API<br/>server/server.js]
+    A[React Client] -->|REST/JSON| B[Express API]
     B --> C[/api/auth]
     B --> D[/api/analyze]
     B --> E[/api/history]
     B --> F[/api/report]
-    C & D & E --> G[(MongoDB)]
-    D -- extracted text --> H[Groq API]
-    D -- upload --> I[Multer<br/>server/uploads]
-    F -- generates --> J[PDFKit report]
+    C --> G[(MongoDB)]
+    D --> H[Groq API]
+    D --> I[Uploads]
+    F --> J[PDF Report]
 ```
 
 Each route module handles one concern (auth, analysis, history, report), all mounted under `/api` in `server.js`.
