@@ -1,0 +1,13 @@
+# Normalize line endings for consistent diffs across platforms
+* text=auto
+
+*.js text
+*.jsx text
+*.json text
+*.md text
+*.css text
+*.html text
+
+*.png binary
+*.jpg binary
+*.gif binary
